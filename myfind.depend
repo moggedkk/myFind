@@ -2,3 +2,10 @@
 1758550862 source:/home/adrian/Documents/FH_Technikum/2_Semester/VerteileSysteme/myFind/main.cpp
 	<iostream>
 
+1758720623 source:/home/lesja/projects/myFind/main.cpp
+	<iostream>
+	<filesystem>
+	<unistd.h>
+	<vector>
+	<sys/types.h>
+
