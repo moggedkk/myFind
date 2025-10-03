@@ -10,6 +10,22 @@ using namespace std::filesystem;
 
 void getParameters(bool &recursive, bool &case_sen, string &text_direc, vector<string> &filenames, int, char*[]);
 
+/*
+  Program behavior:
+
+  - The program parses options with getopt():
+      -R  enables recursive search
+      -i  enables case-sensitive matching
+      <dir> search root directory
+      <file1> <file2> ... target file names
+  - For each filename, the parent process calls fork().
+    Each child searches independently by calling finder.printFilePath().
+  - Children print every match to stdout as a full line containing the absolute path.
+    No explicit sorting is applied; lines appear as matches are found.
+  - The parent waits for all children (wait loop) to avoid zombies and to ensure
+    the program exits only after every search finishes.
+*/
+
 int main(int argc, char* argv[]){
     searchForFile finder;
     bool recursive = false;
