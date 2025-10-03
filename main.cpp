@@ -11,7 +11,6 @@ using namespace std;
 using namespace std::filesystem;
 
 void getParameters(bool &recursive, bool &case_sen, string &text_direc, vector<string> &filenames, int, char*[]);
-//void splitProcess(pid_t pid, vector<string> &filenames);
 void searchForFile(string filename, path direc, bool recursive, bool case_sen);
 void parent_process();
 
@@ -24,9 +23,6 @@ int main(int argc, char* argv[])
     vector<string> filenames;
     getParameters(recursive, case_sen, text_direc, filenames, argc, argv);
     path direc{text_direc};
-
-    //pid_t pid = fork();
-    // splitProcess(pid, filenames);
 
     //Fork for every filename:
     for(int i = 0; i < filenames.size(); i++){
@@ -42,7 +38,6 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
 
 void getParameters(bool &recursive, bool &case_sen, string &text_direc, vector<string> &filenames, int argc, char* argv[]){
 
@@ -67,26 +62,6 @@ void getParameters(bool &recursive, bool &case_sen, string &text_direc, vector<s
 
 }
 
-/*
-//define child and parent processes.  do we need the function?
-void splitProcess(pid_t pid, vector<string> &filenames)
-{
-    switch(pid){
-        case -1: //error
-            cout << "Failed to fork" << endl;
-            exit(1);
-        case 0: //child
-            path direc = path.empty() ? current_path() : path{path};
-            searchForFile(filename, direc, recursive, case_sen);
-            exit(0);
-            break;
-        default: //parent
-            break;
-    }
-
-};
-*/
-
 void searchForFile(string file_to_search, path direc, bool recursive, bool case_sen){
 
     //compares 2 names
@@ -102,14 +77,14 @@ void searchForFile(string file_to_search, path direc, bool recursive, bool case_
         for (const auto &entry : recursive_directory_iterator(direc)) {
             string entry_name = entry.path().filename().string();
             if (equals(entry_name, file_to_search)) {
-                cout << getpid() << "File found with child process: "<< file_to_search << ": " << absolute(entry.path()) << endl; //todo: check structure
+                cout << getpid() << ": "<< file_to_search << ": " << absolute(entry.path()) << endl;
             }
         }
     }else{
         for(const auto &entry: directory_iterator(direc)){
             string entry_name = entry.path().filename().string();
             if (equals(entry_name, file_to_search)) {
-                cout << getpid() << "File found with child process: " << file_to_search << ": " << absolute(entry.path()) << endl; //todo: check structure
+                cout << getpid() << ": " << file_to_search << ": " << absolute(entry.path()) << endl;
             }
         }
     }
