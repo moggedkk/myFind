@@ -77,14 +77,14 @@ void searchForFile(string file_to_search, path direc, bool recursive, bool case_
         for (const auto &entry : recursive_directory_iterator(direc)) {
             string entry_name = entry.path().filename().string();
             if (equals(entry_name, file_to_search)) {
-                cout << getpid() << ": "<< file_to_search << ": " << absolute(entry.path()) << endl;
+                cout << getpid() << ": "<< file_to_search << ": " << absolute(entry.path().lexically_normal()) << endl;
             }
         }
     }else{
         for(const auto &entry: directory_iterator(direc)){
             string entry_name = entry.path().filename().string();
             if (equals(entry_name, file_to_search)) {
-                cout << getpid() << ": " << file_to_search << ": " << absolute(entry.path()) << endl;
+                cout << getpid() << ": " << file_to_search << ": " << absolute(entry.path().lexically_normal()) << endl;
             }
         }
     }
