@@ -6,7 +6,7 @@ CXXFLAGS = -std=c++17 -Wall -pthread -I./include
 SRC = main.cpp src/searchForFile.cpp
 
 # Target executable
-TARGET = output
+TARGET = myfind
 
 # -----------------------------
 # Default target: build everything
