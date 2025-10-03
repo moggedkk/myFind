@@ -2,10 +2,27 @@
 1758550862 source:/home/adrian/Documents/FH_Technikum/2_Semester/VerteileSysteme/myFind/main.cpp
 	<iostream>
 
-1758720623 source:/home/lesja/projects/myFind/main.cpp
+1759496963 source:/home/lesja/projects/myFind/main.cpp
 	<iostream>
-	<filesystem>
 	<unistd.h>
 	<vector>
 	<sys/types.h>
+	<sys/wait.h>
+	<searchForFile.h>
+
+1759498210 /home/lesja/projects/myFind/include/searchForFile.h
+	<filesystem>
+	<iostream>
+	<unistd.h>
+	<vector>
+	<sys/types.h>
+	<sys/wait.h>
+
+1759498059 source:/home/lesja/projects/myFind/src/searchForFile.cpp
+	"searchForFile.h"
+	<iostream>
+	<unistd.h>
+	<cctype>
+	<algorithm>
+	<filesystem>
 
