@@ -26,3 +26,19 @@
 	<algorithm>
 	<filesystem>
 
+1759498921 source:/home/adrian/Documents/FH_Technikum/2_Semester/VerteileSysteme/myFind/src/searchForFile.cpp
+	"searchForFile.h"
+	<iostream>
+	<unistd.h>
+	<cctype>
+	<algorithm>
+	<filesystem>
+
+1759498921 /home/adrian/Documents/FH_Technikum/2_Semester/VerteileSysteme/myFind/include/searchForFile.h
+	<filesystem>
+	<iostream>
+	<unistd.h>
+	<vector>
+	<sys/types.h>
+	<sys/wait.h>
+
